@@ -7,7 +7,7 @@ pygame.init()
 
 #create screen
 
-screen = pygame.display.set_mode([500,500])
+screen = pygame.display.set_mode([400,400])
 
 game.newGame()
 
