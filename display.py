@@ -5,35 +5,25 @@ pygame.init()
 
 
 # Run until the user asks to quit
+def draw(screen):
 
-running = True
-while running:
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                
+        screen.fill((255, 255, 220))
 
-
-    # Did the user click the window close button?
-
-    for event in pygame.event.get():
-
-        if event.type == pygame.QUIT:
-
-            running = False
-
-
-    # Fill the background with white
-
-    screen.fill((0, 0, 0))
+        pygame.draw.rect(screen, (0, 0, 0), (250, 250), 75)
+        
 
 
-    # Draw a solid blue circle in the center
+        # Flip the display
 
-    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
-
-
-    # Flip the display
-
-    pygame.display.flip()
+        pygame.display.flip()
 
 
-# Done! Time to quit.
+    # Done! Time to quit.
 
-pygame.quit()
+    pygame.quit()
