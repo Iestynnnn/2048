@@ -23,7 +23,7 @@ def numberOfEmptyTiles(grid):
     count = 0
     for row in grid:
         for cell in row:
-            if y == 0:
+            if cell == 0:
                 count += 1
     return count
 

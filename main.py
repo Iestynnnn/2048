@@ -20,7 +20,7 @@ game.newGame(grid)
 running = True
 
 while running:
-    
+
     # event handling, gets all event from the event queue
     for event in pygame.event.get():
         # only do something if the event is of type QUIT

@@ -12,12 +12,10 @@ def draw(screen):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-                
+
         screen.fill((255, 255, 220))
 
         pygame.draw.rect(screen, (0, 0, 0), (250, 250), 75)
-        
-
 
         # Flip the display
 
