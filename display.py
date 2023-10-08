@@ -1,6 +1,9 @@
 # this is some code from another file testing out displaying with pygame
 import pygame
 
+CREAM = (255, 255, 220)
+BLACK = (0, 0, 0)
+
 pygame.init()
 
 
@@ -13,9 +16,9 @@ def draw(screen):
             if event.type == pygame.QUIT:
                 running = False
 
-        screen.fill((255, 255, 220))
+        screen.fill(CREAM)
 
-        pygame.draw.rect(screen, (0, 0, 0), (250, 250), 75)
+        pygame.draw.rect(screen, BLACK, (250, 250), 75)
 
         # Flip the display
 
