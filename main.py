@@ -14,7 +14,7 @@ grid = [[0,0,0,0],
 screen = pygame.display.set_mode([500,500])
 
 
-game.newGame()
+game.newGame(grid)
 
 # define a variable to control the main loop
 running = True

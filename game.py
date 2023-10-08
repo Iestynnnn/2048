@@ -1,13 +1,13 @@
 import random
-def newGame():
-    for row in main.grid:
+def newGame(grid):
+    for row in grid:
         for cell in row:
             y = 0
     addTile()
 
-def addTile():
+def addTile(grid):
     randomIndex = random.randint(0, numberOfEmptyTiles())
-    for row in main.grid:
+    for row in grid:
         for cell in row:
             if cell == 0:
                 if randomIndex == 0:
@@ -19,9 +19,9 @@ def addTile():
                     randomIndex -= 1
 
 
-def numberOfEmptyTiles():
+def numberOfEmptyTiles(grid):
     count = 0
-    for row in main.grid:
+    for row in grid:
         for cell in row:
             if y == 0:
                 count += 1
