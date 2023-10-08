@@ -1,15 +1,17 @@
 import random
-def newGame(grid):
-    for row in grid:
+import grid
+
+def newGame():
+    for row in grid.grid:
         for cell in row:
             y = 0
     addTile()
 
-def addTile(grid):
+def addTile():
 
     empty_cells = []
 
-    for row_num, row in enumerate(grid):
+    for row_num, row in enumerate(grid.grid):
         for cell_num, cell in enumerate(row):
             if cell == 0:
                 empty_cells.append(row_num, cell_num)
@@ -17,15 +19,6 @@ def addTile(grid):
     new_tile_value, = random.choices([2, 4], [9, 1])
     selected_tile = random.choice(empty_cells)
 
-    return grid
-
-def numberOfEmptyTiles(grid):
-    count = 0
-    for row in grid:
-        for cell in row:
-            if cell == 0:
-                count += 1
-    return count
 
 
 

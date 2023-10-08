@@ -2,19 +2,15 @@ import pygame
 import game
 import display
 
-pygame.init()
 
-grid = [[0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0]]
+pygame.init()
 
 #create screen
 
 screen = pygame.display.set_mode([500,500])
 
 
-game.newGame(grid)
+game.newGame()
 
 # define a variable to control the main loop
 running = True
