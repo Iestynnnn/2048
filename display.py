@@ -18,7 +18,13 @@ def draw(screen):
 
         screen.fill(CREAM)
 
-        pygame.draw.rect(screen, BLACK, (250, 250), 75)
+        pygame.draw.rect(screen, BLACK, pygame.Rect((100,0),(3,400)))
+        pygame.draw.rect(screen, BLACK, pygame.Rect((200,0),(3,400)))
+        pygame.draw.rect(screen, BLACK, pygame.Rect((300,0),(3,400)))
+        pygame.draw.rect(screen, BLACK, pygame.Rect((0,100),(400,3)))
+        pygame.draw.rect(screen, BLACK, pygame.Rect((0,200),(400,3)))
+        pygame.draw.rect(screen, BLACK, pygame.Rect((0,300),(400,3)))
+
 
         # Flip the display
 
