@@ -6,18 +6,18 @@ def newGame(grid):
     addTile()
 
 def addTile(grid):
-    randomIndex = random.randint(0, numberOfEmptyTiles())
-    for row in grid:
-        for cell in row:
-            if cell == 0:
-                if randomIndex == 0:
-                    if random.randint(0,9) == 0:
-                        cell == 4
-                    else:
-                        cell == 2
-                else:
-                    randomIndex -= 1
 
+    empty_cells = []
+
+    for row_num, row in enumerate(grid):
+        for cell_num, cell in enumerate(row):
+            if cell == 0:
+                empty_cells.append(row_num, cell_num)
+
+    new_tile_value, = random.choices([2, 4], [9, 1])
+    selected_tile = random.choice(empty_cells)
+
+    return grid
 
 def numberOfEmptyTiles(grid):
     count = 0
