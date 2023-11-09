@@ -16,5 +16,5 @@ def addTile():
             if cell == 0:
                 empty_cells.append([row_num, cell_num])
 
-    new_tile_value, = random.choices([2, 4], [9, 1])
+    new_tile_value, = random.choices([1, 2], [9, 1])
     selected_tile = random.choice(empty_cells)

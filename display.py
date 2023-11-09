@@ -1,7 +1,10 @@
 # this is some code from another file testing out displaying with pygame
 import pygame
+import grid
+import math
+import typing
 
-CREAM = (250, 250, 190)
+EMPTYTILE = (250, 250, 190)
 GRIDBORDERSCOLOUR = (235, 235, 250)
 
 pygame.init()
@@ -16,16 +19,16 @@ def draw(screen):
             if event.type == pygame.QUIT:
                 running = False
 
-        screen.fill(CREAM)
+        screen.fill(EMPTYTILE)
 
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((100,0),(3,400)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((200,0),(3,400)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((300,0),(3,400)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,100),(400,3)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,200),(400,3)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,300),(400,3)))
+        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((97,0),(4,400)))
+        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((198,0),(4,400)))
+        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((299,0),(4,400)))
+        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,97),(400,4)))
+        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,198),(400,4)))
+        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,299),(400,4)))
 
-
+        drawTiles(screen)
         # Flip the display
 
         pygame.display.flip()
@@ -34,3 +37,11 @@ def draw(screen):
     # Done! Time to quit.
 
     pygame.quit()
+
+
+def drawTiles(screen):
+    tile_colours: list[tuple[int, int, int]] = [(210,210,210),(220,210,210),(240,110,110)]
+    for x in range(4):
+        for y in range(4):
+            if grid.grid[x][y] != 0:
+                pygame.draw.rect(screen, tile_colours[grid.grid[x][y]-1], pygame.Rect((101*x,101*y),(97,97)))
