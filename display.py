@@ -41,7 +41,11 @@ def draw(screen):
 
 def drawTiles(screen):
     tile_colours: list[tuple[int, int, int]] = [(210,210,210),(220,210,210),(240,110,110)]
+    text_font = pygame.font.SysFont('Comic Sans MS', 30)
     for x in range(4):
         for y in range(4):
             if grid.grid[x][y] != 0:
-                pygame.draw.rect(screen, tile_colours[grid.grid[x][y]-1], pygame.Rect((101*x,101*y),(97,97)))
+                pygame.draw.rect(screen, tile_colours[grid.grid[x][y]-1], pygame.Rect((101*x, 101*y),(97,97)))
+                text_surface = text_font.render(str(2**grid.grid[x][y]), False, (0, 0, 0))
+                screen.blit(text_surface, (101*x + 30, 101*y + 35))
+
