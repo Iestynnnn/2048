@@ -12,31 +12,19 @@ pygame.init()
 
 # Run until the user asks to quit
 def draw(screen):
+    screen.fill(EMPTYTILE)
 
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+    pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((97,0),(4,400)))
+    pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((198,0),(4,400)))
+    pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((299,0),(4,400)))
+    pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,97),(400,4)))
+    pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,198),(400,4)))
+    pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,299),(400,4)))
 
-        screen.fill(EMPTYTILE)
+    drawTiles(screen)
+    # Flip the display
 
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((97,0),(4,400)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((198,0),(4,400)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((299,0),(4,400)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,97),(400,4)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,198),(400,4)))
-        pygame.draw.rect(screen, GRIDBORDERSCOLOUR, pygame.Rect((0,299),(400,4)))
-
-        drawTiles(screen)
-        # Flip the display
-
-        pygame.display.flip()
-
-
-    # Done! Time to quit.
-
-    pygame.quit()
+    pygame.display.flip()
 
 
 def drawTiles(screen):

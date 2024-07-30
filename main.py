@@ -16,7 +16,6 @@ game.newGame()
 running = True
 
 while running:
-
     # event handling, gets all event from the event queue
     for event in pygame.event.get():
         # quit the game if the event is of type QUIT
