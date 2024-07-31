@@ -19,7 +19,10 @@ class direction(Enum):
 
 def update(input_direction):
     # merge tiles in direction specified
-    updated_grid = [[0] * len(grid.grid[0])] * len(grid.grid)
+    updated_grid = [[0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0]]
     if input_direction == direction.UP:
         for x in range(len(updated_grid)):
             updated_grid[x] = merge_column(grid.grid[x])
@@ -30,9 +33,20 @@ def update(input_direction):
         for x in range(len(updated_grid[0])):
             column = []
             for y in range(len(updated_grid)):
-                column.append()
+                column.append(grid.grid[y][x])
+            column = merge_column(column)
+            for y in range(len(updated_grid)):
+                new_value = column[y]
+                updated_grid[y][x] = new_value     #<---here
     elif input_direction == direction.RIGHT:
-        True
+        for x in range(len(updated_grid[0])):
+            column = []
+            for y in range(len(updated_grid)):
+                column.append(grid.grid[y][x])
+            column = merge_column(column[::-1])[::-1]
+            for y in range(len(updated_grid)):
+                new_value = column[y]
+                updated_grid[y][x] = new_value
 
     if updated_grid == grid.grid:
         return
@@ -68,6 +82,7 @@ def merge_column(tiles):
                     # increase the value of the variable and add to the completed stack
                     if tile_1_value == tiles[value_pointer]:
                         completed_stack.append(tile_1_value+1)
+                        grid.score += 2**(tile_1_value+1)
                         tile_1_value = 0
                         value_pointer += 1
                     # otherwise add the original variable repeat the loop
@@ -99,3 +114,4 @@ def addTile():
     new_tile_value, = random.choices([1, 2], [9, 1])
     selected_tile = random.choice(empty_cells)
     grid.grid[selected_tile[0]][selected_tile[1]] = new_tile_value
+    print()

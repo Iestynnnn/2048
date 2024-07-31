@@ -3,6 +3,8 @@ grid = [[0,0,0,0],
         [0,0,0,0],
         [0,0,0,0]]
 
+score = 0
+
 def numberOfEmptyTiles():
     count = 0
     for row in grid:
